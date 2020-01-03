@@ -1,0 +1,32 @@
+view:
+  foo: untyped string
+  header:
+    - class: testclass
+      inner:
+       - text: foobebe
+definitions:
+  div:
+    template: |
+      <div classname="{{class}}">
+      {{#inner}}
+      {{text}}
+      {{#bad_div}}
+      {{> bad_div }}
+      {{/bad_div}}
+      {{/inner}}
+      </div>
+  bad_div:
+    template: <h1>bad {{variable}} div!</h1>
+template: |
+  <!DOCTYPE html>
+  <html>
+    <body>
+      {{foo}}
+      {{#header}}
+      {{! previous comment }}
+      {{> div }}
+      <div>holla</div>
+      {{/header }}
+      {{! comment }}
+    </body>
+  </html>

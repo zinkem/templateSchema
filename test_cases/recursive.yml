@@ -1,0 +1,28 @@
+title: Documentation for template schema
+definitions:
+  schema_partial:
+    template: |
+      {{#$ref}}
+        Reference to: {{.}}
+      {{/$ref}}
+      {{#oneOf}}
+        {{> schema_partial }}
+      {{/oneOf}}
+      {{#allOf}}
+        {{> schema_partial }}
+      {{/allOf}}
+      {{#anyOf}}
+        {{> schema_partial }}
+      {{/anyOf}}
+template: |
+  # {{$id}}
+  {{title}}
+  ###### uses schema: {{$schema}}
+  ---
+  {{> schema_partial }}
+$comments: |
+  does not work currently!
+  the schema generator in engine.js builds a static schema and embeds partial
+  schema into the generated view schema with no references. Partials should
+  be added to 'definitions' in the view and references should be used, combined
+  with the parent scope through 'allOf'

@@ -1,0 +1,19 @@
+title: partial test case
+view:
+  title: partial test case
+  comments: |
+    tests using a partial
+  next: iterator.yml
+definitions:
+  comments:
+    template: |
+      <p>{{comments}}</p>
+template: |
+  <!DOCTYPE html>
+  <html>
+    <body>
+      <div><h1>{{title}}</h1></div>
+      <div>{{> comments}}</div>
+      <a href="./{{next}}">next</a>
+    </body>
+  </html>

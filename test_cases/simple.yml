@@ -1,0 +1,15 @@
+title: simple
+view:
+  title: simple test case
+  comments: |
+    tests simplest base case
+  next: partial.yml
+template: |
+  <!DOCTYPE html>
+  <html>
+    <body>
+      <div><h1>{{title}}</h1></div>
+      <div><p>{{comments}}</p></div>
+      <a href="./{{next}}">next</a>
+    </body>
+  </html>

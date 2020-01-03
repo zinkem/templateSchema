@@ -1,0 +1,56 @@
+title: chat window
+view:
+  title: My Chat Window
+  chatlog:
+    - name: ricky
+      msg: it's not rocket appliances
+    - name: bubbles
+      msg: patrick swayze uses illegal parts
+    - name: ricky
+      msg: he's got cool model trains
+  chatroom:
+    members:
+      - ricky
+      - julian
+      - bubbles
+      - cory
+      - trevor
+definitions:
+  chatroom:
+    template: |
+      <div>
+      </div>
+template: |
+  <!DOCTYPE html>
+  <html>
+    <style>
+      .container {
+        display: flex;
+      }
+      .flexbox {
+        flex-grow: 1;
+      }
+    </style>
+    <body>
+      <div><h1>{{title}}</h1></div>
+      <div class="container">
+        <div class="flexbox">
+          {{#chatlog}}
+          {{> chatlog}}
+          {{/chatlog}}
+        </div>
+        <div class="flexbox">
+          {{> chatroom }}
+        </div>
+      </div>
+    </body>
+  </html>
+comments: |
+  inside an iterator (#)
+    no variables: array/boolean
+    only basic variables: array of T objects, single T object
+    partial with no containing variables: T boolean
+    partial with self variable: T string
+    partial with normal variables: T object
+
+    oor, coerce to array with 'items'?

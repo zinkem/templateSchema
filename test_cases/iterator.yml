@@ -1,0 +1,18 @@
+title: iterator test case
+view:
+  title: iterator test case
+  comments:
+    - tests using an iterator
+    - another entry
+  next: complex.yml
+template: |
+  <!DOCTYPE html>
+  <html>
+    <body>
+      <div><h1>{{title}}</h1></div>
+      {{#comments}}
+      <div>{{.}}</div>
+      {{/comments}}
+      <a href="./{{next}}">next</a>
+    </body>
+  </html>
